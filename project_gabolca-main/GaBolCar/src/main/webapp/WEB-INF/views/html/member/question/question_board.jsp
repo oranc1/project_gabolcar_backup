@@ -37,6 +37,14 @@
 										<p class="date">날짜</p>
 									</li>
 									
+									
+<%-- 									<c:forEach var="board" items="${boardList }"> --%>
+									
+									
+									
+									
+									
+									
 									<li class="list_cont">
 										<a href="#">
 											<p class="list_num">1</p>
@@ -46,28 +54,14 @@
 											</div>
 
 											<p class="writter">
-												<!-- select 구문에서 2번째 글자 * 로 치환 -->
+<!-- 			select 구문에서 2번째 글자 * 로 치환 -->
 												<span class="writter_name"><span class="sv_member">설*우</span></span>
 											</p>
 											<p class="date">12-02</p>
 										</a>
 									</li>
 									
-									<li class="list_cont">
-										<a href="#">
-											<p class="list_num">2</p>
-											<p class="list_car">예약취소</p>
-											<div class="txt_prev">
-												<h4>예약 취소 문의합니다 !</h4>
-											</div>
 
-											<p class="writter">
-												<span class="writter_name"><span class="sv_member">최*진</span></span>
-											</p>
-											<p class="date">12-02</p>
-										</a>
-									</li>
-								</ul>
 								
 								<!-- 예약 내역(반납 시간 후)이 있는 사람만 출력 -->
 								<div class="write_btn">

@@ -91,13 +91,8 @@ public class MemberService{
 			return mapper.selectMemQuestionList();
 		}
 		
-//		// 1:1 문의 게시판에 mem_idx 넘겨주기
-//		public int getCurrentUserMemIdx(int mem_idx) {
-//			// TODO Auto-generated method stub
-//			return mapper.getMemIdxByMemIdx(mem_idx);
-//		}
 		
-		//
+		// 1:1 문의게시판 로그인 상태 이름 넘겨주기
 		public int getCurrentUserMemIdx(String mem_name) {
 		    return mapper.getMemIdxByMemName(mem_name);
 		}
