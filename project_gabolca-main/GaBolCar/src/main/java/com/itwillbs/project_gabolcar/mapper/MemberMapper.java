@@ -49,6 +49,12 @@ public interface MemberMapper {
 	List<Map<String, Object>> dsbUserAges();
 	
 	// 1:1 문의게시판에 회원 DB 값 보내기는 List
-	List<Map<String, Object>> selectMemQuestionList();
+	List<MemberVO> selectMemQuestionList();
+	
+	// 1:1 문의게시판 아이디 넘겨주기
+//	int getMemIdxByMemIdx(int mem_idx);
+	
+	//
+	int getMemIdxByMemName(String mem_name);
 
 }

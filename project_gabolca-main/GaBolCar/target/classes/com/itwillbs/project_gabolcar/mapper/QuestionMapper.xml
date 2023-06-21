@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itwillbs.project_gabolcar.mapper.QuestionMapper">
+	
+	
+<!-- 	<select id="getMemIdxByUsername" resultType="int"> -->
+<!--    	 	SELECT mem_idx FROM mem_info WHERE mem_name = #{mem_idx } -->
+<!-- 	</select> -->
+	
+	
+	
 	<insert id="insertQuestionBoard">
-		<selectKey keyProperty="qst_idx" resultType="int" order="BEFORE">
-			SELECT IFNULL(MAX(qst_idx), 0) FROM qst_board
-		</selectKey>
-			INSERT 
-				INTO qst_board
-				VALUES (
-					#{qst_idx} + 1
-					, #{mem_idx}
-					, #{mem_name}
-					, #{qst_pass}
-					, #{qst_subject}
-					, #{qst_content}
-					, 0
-					, 0
-					, 0
-					, now()
-					, #{qst_type}		
-				)
+	    <selectKey keyProperty="qst_idx" resultType="int" order="BEFORE">
+	        SELECT IFNULL(MAX(qst_idx), 0) FROM qst_board
+	    </selectKey>
+	        INSERT 
+	            INTO qst_board
+	            VALUES (
+	                #{qst_idx}
+	                , #{mem_idx}
+	                , #{mem_name}
+	                , #{qst_pass}
+	                , #{qst_subject}
+	                , #{qst_content}
+	                , 0
+	                , 0
+	                , 0
+	                , now()
+	                , #{qst_type}        
+	            )
 	</insert>
 	
 	<!-- 나중에 작성자 이름에 mem_name을 불러올때 쓰이는 구문 -->

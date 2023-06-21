@@ -111,4 +111,11 @@
 			mem_info
 	</select>
 	
+	
+	<!--  -->
+	<select id="getMemIdxByMemName" resultType="int">
+    	SELECT mem_idx FROM mem_info WHERE mem_name = #{mem_name}
+	</select>
+	
+	
 </mapper>

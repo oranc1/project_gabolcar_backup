@@ -36,7 +36,7 @@
                                             </select>
                                         </div>
                                         <div class="writer">
-                                            <input type="text" name="mem_name" id="mem_name" placeholder="작성자" class="inputBox">
+                                            <input type="text" name="mem_name" id="mem_name" placeholder="${mem.mem_name }" class="inputBox">
                                         	<!-- 작성자 명은 DB로 불러오기 -->
                                         </div>
                                     </li>

@@ -87,10 +87,19 @@ public class MemberService{
 		}
 		
 		// 1:1 문의 게시판 DB 값 넘겨주기
-		public List<Map<String, Object>> memQuestionList() {
+		public List<MemberVO> memQuestionList() {
 			return mapper.selectMemQuestionList();
 		}
 		
-
+//		// 1:1 문의 게시판에 mem_idx 넘겨주기
+//		public int getCurrentUserMemIdx(int mem_idx) {
+//			// TODO Auto-generated method stub
+//			return mapper.getMemIdxByMemIdx(mem_idx);
+//		}
+		
+		//
+		public int getCurrentUserMemIdx(String mem_name) {
+		    return mapper.getMemIdxByMemName(mem_name);
+		}
 
 }
