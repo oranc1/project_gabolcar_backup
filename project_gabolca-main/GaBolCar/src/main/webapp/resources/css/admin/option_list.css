@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Pretendard, sans-serif;
+}
+
+#optionList_main {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+#optionList_title {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#optionList>ul {
+	text-align: center;
+}
+
+#optionList li {
+	display: inline-block;
+	justify-content:center;
+	text-align: center;
+}
+
+#optionList li:nth-child(1) {
+	width: 70px;
+	
+}
+#optionList li:nth-child(2) {
+	width: 200px;
+}
+#optionList li:nth-child(3) {
+	width: 200px;
+}
+
+#optionList li:nth-child(3) {
+	width: 200px;
+}
+
+#optionbtn {
+	display: flex;
+	justify-content: center;
+}
+
+#optionbtn>button {
+	margin: 10px 5px;
+}
+
+#option_image {
+	width: 50px;
+	height: 50px;
+}
+
+#option_insert,button[name=option_update] {
+	background: rgb(255, 94, 0);
+	color: #FFFFFF;
+}

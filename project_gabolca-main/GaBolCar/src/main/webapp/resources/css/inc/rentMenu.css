@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+
+.rent_menu {
+	padding: 0px;
+	width: 100% !important;
+	height: 100%;
+	background: white; 
+	text-align: left;
+	margin: 0 !important;
+	border-radius: 10px 10px 0 0 ;
+}
+
+.rent_menu *{
+	font-size: 15px !important;
+}
+.rent_menu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.rent_menu li {
+	margin: 0;
+	padding: 0;
+	margin-top: 5px;
+	display: inline-block;
+}
+
+.rent_menu div {
+	padding: 5px 10px;
+}
+
+.submit_btn {
+	margin: 0;
+	background-color: #ff7f02;
+	border-radius: 10px !important;
+	font-weight:bold;
+	color:white;
+	width: 100%;
+}
+
+/* 버튼색 수정 */
+.btn-outline-dark{
+	border-color: #0B294B;
+	--bs-btn-active-bg:#0B294B
+}
+.btn-outline-dark:hover{
+	background-color: #0B294B;
+}
+.btn-outline-warning{
+	border-color: #ff6600;
+}
+.btn-outline-warning:hover{
+	background-color: #ff6600;
+	color: white;
+}
+.btn-warning{
+	background-color: #ff7f02;
+	border-color: #ff7f02;
+	color: white;
+}
+.btn-warning:hover{
+	background-color: #ffb04b;
+}
+
+.submit_btn:hover {
+	background-color: #FFB04B;
+
+}

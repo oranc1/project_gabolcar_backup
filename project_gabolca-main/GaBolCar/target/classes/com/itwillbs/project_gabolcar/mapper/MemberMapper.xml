@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itwillbs.project_gabolcar.mapper.MemberMapper">
+	 <select id="idCheck" parameterType="String" resultType="int">
+		SELECT COUNT(mem_id) FROM mem_info WHERE mem_id=#{mem_id}
+	</select>
+
+   <insert id="insertMember">
+		INSERT
+			INTO mem_info
+			VALUES (
+				null 
+				, #{mem_id} 
+				, #{mem_passwd} 
+				, #{mem_name}  
+				, CONCAT(#{phone1}, '-', #{phone2}, '-', #{phone3})  
+				, CONCAT(#{sample6_postcode},'/',#{sample6_address},'/',#{sample6_detailAddress},'/',#{sample6_extraAddress})  
+				, #{mem_birthday}  
+				, now()  
+			)
+	</insert>
+	
+	<select id="selectCorrectUser" resultType="com.itwillbs.project_gabolcar.vo.MemberVO">
+		SELECT * FROM mem_info WHERE mem_id=#{mem_id} AND mem_passwd=#{mem_passwd}
+	</select>
+	
+<!-- 	로그인 - SELECT -->
+<!-- 	아이디가 일치하는 레코드의 패스워드 조회 => resultType 을 String 타입으로 지정(string 가능) -->
+	<select id="selectPasswd" resultType="string">
+		SELECT mem_passwd 
+			FROM mem_info
+			WHERE
+				mem_id = #{mem_id}
+	</select>
+	
+
+	<select id="getId" resultType="string">
+	SELECT mem_id
+			FROM mem_info
+			WHERE
+				mem_name = #{mem_name}
+				and mem_mtel = #{mem_mtel}
+	</select>
+	
+	<select id="isExistUser" resultType="string">
+	SELECT mem_id
+		FROM mem_info
+			WHERE
+				mem_name = #{mem_name}
+				and mem_mtel = #{mem_mtel}
+				and mem_id = #{mem_id}
+	</select>
+	
+	
+	<!--   내 정보 가져오기  -->
+	<select id="selectMemberinfo" resultType="com.itwillbs.project_gabolcar.vo.MemberVO"> 
+	SELECT * FROM mem_info WHERE mem_id = #{mem_id} 
+	</select>
+	
+	<!--   정보 수정하기  -->
+	<update id="updateMember">
+	UPDATE mem_info 
+		SET mem_name = #{member.mem_name}
+	<if test="newPasswd neq ''"> 
+		, mem_passwd = #{newPasswd} 
+		, mem_passwd = #{newPasswd1} 
+	</if>
+		, mem_birthday = CONCAT(#{member.mem_bir1}, '-', #{member.mem_bir2}, '-', #{member.mem_bir2}) 
+		, mem_mtel = CONCAT(#{member.phone1}, '-', #{member.phone2}, '-', #{member.phone3}) 
+		, mem_addr = CONCAT(#{member.sample6_postcode},'/',#{member.sample6_address},'/',#{member.sample6_detailAddress},'/',#{member.sample6_extraAddress})
+			 WHERE mem_id = #{member.mem_id}
+	</update>
+
+
+	<delete id="deleteMember">
+	 DELETE FROM mem_info WHERE mem_id=#{mem_id} 
+	 </delete>
+	
+	<update id="changePw">
+		update mem_info
+			set mem_passwd = #{mem_passwd}
+			where mem_id = #{mem_id}
+			and mem_name = #{mem_name}
+	</update>
+	<select id="dsbUserAges" resultType="map">
+		SELECT
+			CASE
+				round(abs(datediff(mem_birthday, date(now()))/365),-1)
+				WHEN 20 THEN '20대'
+				WHEN 30 THEN '30대'
+				WHEN 40 THEN '40대'
+				WHEN 50 THEN '50대'
+				WHEN 60 THEN '60대'
+				WHEN 70 THEN '70대'
+				WHEN 80 THEN '80대'
+			END AS 'ages',
+			count(*) AS count
+		FROM
+			mem_info mi
+			JOIN res_info ri ON mi.mem_idx = ri.mem_idx
+		WHERE
+			res_idx IS NOT NULL
+		GROUP BY
+			ages
+	</select>
+	
+	<select id="selectMemQuestionList" resultType="map">
+		SELECT
+			*
+		FROM
+			mem_info
+	</select>
+	
+</mapper>
